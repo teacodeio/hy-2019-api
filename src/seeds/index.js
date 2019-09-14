@@ -1,13 +1,13 @@
 const users = require('./users');
-const devices = require('./devices');
 const ratings = require('./ratings');
 
 module.exports = async (app) => {
   try {
+    console.log('Users');
     const createdUsers = await users(app);
 
     createdUsers.map(async user => {
-      devices(app, user);
+      console.log('Ratings');
       ratings(app, user);
     });
   } catch (e) {
