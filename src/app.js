@@ -55,6 +55,6 @@ app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
 
-app.configure(seeds);
+// app.configure(seeds);
 
 module.exports = app;

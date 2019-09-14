@@ -6,12 +6,13 @@ module.exports = (context) => {
   } = context.data;
 
   if (totalPoints) {
-    context.level = Math.floor(Math.pow(totalPoints / 10, 2/3));
+    context.data.level = Math.floor(Math.pow(totalPoints / 3, 2/3)) + 1;
 
-    let rankId = Math.floor(context.level / 5);
+    let rankId = Math.floor(context.data.level / 5);
     if (rankId >= ranks.length) {
       rankId = ranks.length - 1;
     }
-    context.rank = ranks[rankId];
+
+    context.data.rank = ranks[rankId];
   }
 };
