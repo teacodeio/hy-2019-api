@@ -23,6 +23,9 @@ module.exports = function (app) {
     weight: {
       type: Number,
       required: true
+    },
+    placeId: {
+      type: String
     }
   }, {
     timestamps: true
