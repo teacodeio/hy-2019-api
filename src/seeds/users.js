@@ -1,4 +1,5 @@
 const faker = require('faker');
+const mongoose = require('mongoose');
 
 module.exports = async (app) => {
   try {
@@ -11,13 +12,15 @@ module.exports = async (app) => {
 
       User.create({
         email: 'admin@admin.pl',
-        password: 'admin'
+        password: 'admin',
+        uniqueId: mongoose.Types.ObjectId()
       });
 
       const promises = Array.from({length: createUsers}).map(() => {
         return User.create({
           email: faker.internet.email(),
-          password: faker.internet.password()
+          password: faker.internet.password(),
+          uniqueId: mongoose.Types.ObjectId()
         });
       });
 
