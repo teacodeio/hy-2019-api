@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 module.exports = async (app, user) => {
   try {
     const requiredRatings = 2000;
@@ -10,6 +12,7 @@ module.exports = async (app, user) => {
       const promises = Array.from({length: createUsers}).map(() => {
         return Rating.create({
           user,
+          placeId: mongoose.Types.ObjectId(),
           loc: {
             type: 'Point',
             coordinates: [
