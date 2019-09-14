@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const GeoJSON = require('mongoose-geojson-schema')
+const mongoose = require('mongoose');
+const GeoJSON = require('mongoose-geojson-schema');
 
 // ratings-model.js - A mongoose model
 //
@@ -18,6 +18,10 @@ module.exports = function (app) {
     loc: {
       type: mongoose.Schema.Types.Point,
       index: '2dsphere',
+      required: true
+    },
+    weight: {
+      type: Number,
       required: true
     }
   }, {

@@ -15,8 +15,9 @@ module.exports = async (app, user) => {
             coordinates: [
               20.8061 - 0.2 + (Math.random() * 0.4),
               52.0936 - 0.2 + (Math.random() * 0.4)
-            ]
-          }
+            ],
+          },
+          weight: Math.round(Math.random() * 3)
         });
       });
 
