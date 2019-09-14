@@ -1,4 +1,4 @@
-const validator = require('validator')
+const validator = require('validator');
 
 // users-model.js - A mongoose model
 //
@@ -24,6 +24,22 @@ module.exports = function (app) {
     uniqueId: {
       type: String,
       required: true
+    },
+    totalPoints: {
+      type: Number,
+      default: 0
+    },
+    spentPoints: {
+      type: Number,
+      default: 0
+    },
+    level: {
+      type: Number,
+      default: 1
+    },
+    rank: {
+      type: String,
+      enum: ['Novice', 'Intermediate', 'Pro', 'Expert', 'Master', 'Grand Master', 'Perfect']
     }
   }, {
     timestamps: true

@@ -1,3 +1,5 @@
+const addPoints = require('./add-points');
+
 module.exports = {
   before: {
     all: [],
@@ -13,7 +15,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [addPoints],
     update: [],
     patch: [],
     remove: []
