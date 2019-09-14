@@ -12,7 +12,10 @@ module.exports = async (app, user) => {
           user,
           loc: {
             type: 'Point',
-            coordinates: [ 21.0122, 52.2297 ]
+            coordinates: [
+              20.8061 - 0.2 + (Math.random() * 0.4),
+              52.0936 - 0.2 + (Math.random() * 0.4)
+            ]
           }
         });
       });
