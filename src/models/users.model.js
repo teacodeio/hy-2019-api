@@ -20,6 +20,10 @@ module.exports = function (app) {
     password: {
       type: String,
       required: true
+    },
+    uniqueId: {
+      type: String,
+      required: true
     }
   }, {
     timestamps: true
