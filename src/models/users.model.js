@@ -1,4 +1,5 @@
 const validator = require('validator');
+const {ranks} = require('../enums');
 
 // users-model.js - A mongoose model
 //
@@ -39,7 +40,8 @@ module.exports = function (app) {
     },
     rank: {
       type: String,
-      enum: ['Novice', 'Intermediate', 'Pro', 'Expert', 'Master', 'Grand Master', 'Perfect']
+      enum: ranks,
+      default: ranks[0]
     }
   }, {
     timestamps: true

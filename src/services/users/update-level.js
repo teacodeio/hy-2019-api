@@ -1,14 +1,17 @@
+const {ranks} = require('../../enums');
+
 module.exports = (context) => {
   const {
-    user
+    points
   } = context.data;
 
-  context.app('users').patch({
-    id: user,
-    data: {
-      points: {
-        $inc: 1
-      }
+  if (points) {
+    context.level = Math.floor(Math.pow(points / 10, 2/3));
+
+    let rankId = Math.floor(context.level / 5);
+    if (rankId >= ranks.length) {
+      rankId = ranks.length - 1;
     }
-  });
+    context.rank = ranks[rankId];
+  }
 };

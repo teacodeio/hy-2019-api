@@ -2,14 +2,16 @@ const {
   hashPassword, protect
 } = require('@feathersjs/authentication-local').hooks;
 
+const updateLevel = require('update-level');
+
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
     create: [ hashPassword('password') ],
-    update: [ hashPassword('password') ],
-    patch: [ hashPassword('password') ],
+    update: [ hashPassword('password'), updateLevel ],
+    patch: [ hashPassword('password'), updateLevel ],
     remove: []
   },
 
