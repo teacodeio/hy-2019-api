@@ -2,11 +2,11 @@ const {ranks} = require('../../enums');
 
 module.exports = (context) => {
   const {
-    points
+    totalPoints
   } = context.data;
 
-  if (points) {
-    context.level = Math.floor(Math.pow(points / 10, 2/3));
+  if (totalPoints) {
+    context.level = Math.floor(Math.pow(totalPoints / 10, 2/3));
 
     let rankId = Math.floor(context.level / 5);
     if (rankId >= ranks.length) {
