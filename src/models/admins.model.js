@@ -1,12 +1,13 @@
 const validator = require('validator')
 
-// users-model.js - A mongoose model
+// admins-model.js - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
-  const users = new mongooseClient.Schema({
+  const { Schema } = mongooseClient;
+  const admins = new Schema({
     email: {
       type: String,
       validate: {
@@ -25,5 +26,11 @@ module.exports = function (app) {
     timestamps: true
   });
 
-  return mongooseClient.model('users', users);
+  // This is necessary to avoid model compilation errors in watch mode
+  // see https://github.com/Automattic/mongoose/issues/1251
+  try {
+    return mongooseClient.model('admins');
+  } catch (e) {
+    return mongooseClient.model('admins', admins);
+  }
 };
