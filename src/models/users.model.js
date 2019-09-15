@@ -22,7 +22,7 @@ module.exports = function (app) {
       type: String,
       required: true
     },
-    uniqueId: {
+    uniqueId: { // device id
       type: String,
       required: true
     },
