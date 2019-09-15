@@ -1,17 +1,12 @@
-module.exports = (context) => {
+module.exports = () => (context) => {
   const {
     user
   } = context.data;
 
-  context.app('users').patch({
-    id: user,
-    data: {
-      totalPoints: {
-        $inc: 1
-      },
-      spentPoints: {
-        $inc: 1
-      }
+  context.app.service('users').patch(user, {
+    $inc: {
+      totalPoints: 1,
+      spentPoints: 1
     }
-  });
-};
+  })
+}
