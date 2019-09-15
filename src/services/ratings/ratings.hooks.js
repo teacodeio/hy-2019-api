@@ -15,7 +15,9 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [addPoints],
+    create: [
+      addPoints()
+    ],
     update: [],
     patch: [],
     remove: []
